@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Library1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +12,16 @@ namespace Service
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello world!");
+            NetTcpBinding binding = new NetTcpBinding();
+            string address = "net.tcp://localhost:9999/WCFService";
+
+            ServiceHost host = new ServiceHost(typeof(WCFService));
+            host.AddServiceEndpoint(typeof(IWCFContract), binding, address);
+
+            host.Open();
+
+
+            Console.ReadLine();
         }
     }
 }
