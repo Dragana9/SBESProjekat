@@ -57,10 +57,6 @@
       <Project>{3a523502-9a19-431d-a358-270aaf1bc81a}</Project>
       <Name>Library1</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\FTN7\SBES\3-Autent sertifikatima\Vezba_03_template\Manager\Manager.csproj">
-      <Project>{dacd3dad-1eba-49b7-b405-da736e9e0f99}</Project>
-      <Name>Manager</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

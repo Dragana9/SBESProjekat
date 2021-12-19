@@ -14,7 +14,15 @@ namespace Client
             NetTcpBinding binding = new NetTcpBinding();
             string address = "net.tcp://localhost:9999/WCFService";
 
-            Console.WriteLine("Zdravo");
+            EndpointAddress endpointAddress = new EndpointAddress(new Uri(address),
+            EndpointIdentity.CreateUpnIdentity("WCFService"));
+
+            using (WCFClient proxy = new WCFClient(binding, endpointAddress))
+            {
+                proxy.TestCommunication();
+            }
+
+          
             Console.ReadLine();
         }
     }
