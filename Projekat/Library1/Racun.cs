@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common
+namespace Library1
 {
-    public class Racun
+    class Racun
     {
+
         private long broj;
         private double iznos;
         private double dozvoljeniMinus;
@@ -31,6 +32,5 @@ namespace Common
             blokiran = blokiran;
             poslednjaTransakcija = poslednjaTransakcija;
         }
-
     }
 }
