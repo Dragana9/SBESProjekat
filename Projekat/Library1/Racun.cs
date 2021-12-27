@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library1
 {
-    class Racun
+    public class Racun
     {
 
         private long broj;

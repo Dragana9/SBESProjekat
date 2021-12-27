@@ -33,11 +33,38 @@ namespace Client
             factory = this.CreateChannel();
         }
 
+        public void OtvoriRacun()
+        {
+            try
+            {
+
+                factory.OtvoriRacun() ;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("[TestCommunication] ERROR = {0}", e.Message);
+            }
+        }
+
         public void TestCommunication()
         {
             try
             {
+               
                 factory.TestCommunication();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("[TestCommunication] ERROR = {0}", e.Message);
+            }
+        }
+
+        public void ZatvoriRacun()
+        {
+            try
+            {
+
+                factory.ZatvoriRacun();
             }
             catch (Exception e)
             {

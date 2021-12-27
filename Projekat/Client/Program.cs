@@ -6,6 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
+using Library1;
 
 namespace Client
 {
@@ -28,8 +29,29 @@ namespace Client
 
             using (WCFClient proxy = new WCFClient(binding, address1))
             {
-                proxy.TestCommunication();
-                Console.WriteLine("TestCommunication() finished. Press <enter> to continue ...");
+                Console.WriteLine("Izaberte opciju koju zelite: \n\n");
+                Console.WriteLine("1. Otvorite racun\n 2. Zatvorite racun");
+
+                var opp = Console.ReadLine();
+
+                if (opp == "1")
+                {
+                    proxy.OtvoriRacun();
+                }
+                else if (opp == "2")
+                {
+                    proxy.ZatvoriRacun();
+                
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Izabrali ste pogresnu opciju.");
+                }
+
+
+                //proxy.TestCommunication();
+                //Console.WriteLine("TestCommunication() finished. Press <enter> to continue ...");
                 Console.ReadLine();
             }
 

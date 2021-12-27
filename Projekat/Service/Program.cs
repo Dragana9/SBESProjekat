@@ -16,6 +16,8 @@ namespace Service
     {
         static void Main(string[] args)
         {
+
+           
             string srvCertCN = Formatter1.ParseName(WindowsIdentity.GetCurrent().Name);
 
             NetTcpBinding binding = new NetTcpBinding();
@@ -34,6 +36,7 @@ namespace Service
 
             host.Credentials.ServiceCertificate.Certificate = CertManager.GetCertificateFromStorage(StoreName.My, StoreLocation.LocalMachine, srvCertCN);
 
+            
             try
             {
                 host.Open();

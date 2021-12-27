@@ -9,11 +9,20 @@ namespace Service
 {
     public class WCFService : IWCFContract
     {
-       
+        public void OtvoriRacun()
+        {
+            
+            throw new NotImplementedException();
+        }
 
         public void TestCommunication()
         {
             Console.WriteLine("Communication established.");
+        }
+
+        public void ZatvoriRacun()
+        {
+            throw new NotImplementedException();
         }
     }
 }

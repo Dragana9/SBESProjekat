@@ -12,5 +12,11 @@ namespace Library1
         [OperationContract]
         void TestCommunication();
 
+        [OperationContract]
+        void OtvoriRacun();
+
+        [OperationContract]
+        void ZatvoriRacun();
+
     }
 }
