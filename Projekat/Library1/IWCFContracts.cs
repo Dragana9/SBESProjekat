@@ -9,14 +9,23 @@ namespace Library1
     [ServiceContract]
     public interface IWCFContract
     {
-        [OperationContract]
-        void TestCommunication();
 
         [OperationContract]
-        void OtvoriRacun();
+        string OtvoriRacun(long broj, double dozvoljeniMinus, int idKorisnika);
 
         [OperationContract]
-        void ZatvoriRacun();
+        string ZatvoriRacun(int idKorisnika);
+
+        [OperationContract]
+        string ProveriStanje(int idKorisnika);
+
+        [OperationContract]
+        string Uplata(long racun, double uplata);
+        [OperationContract]
+        string Isplata(int idKorisnika, double uplata);
+
+        [OperationContract]
+        string Opomena(long broj);
 
     }
 }

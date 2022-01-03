@@ -33,42 +33,102 @@ namespace Client
             factory = this.CreateChannel();
         }
 
-        public void OtvoriRacun()
+        public string OtvoriRacun(long broj, double dozvoljeniMinus, int idKorisnika)
         {
+            string retVal = "";
             try
             {
 
-                factory.OtvoriRacun() ;
+                retVal = factory.OtvoriRacun(broj, dozvoljeniMinus, idKorisnika);
+                return retVal;
+
             }
             catch (Exception e)
             {
-                Console.WriteLine("[TestCommunication] ERROR = {0}", e.Message);
+
+                Console.WriteLine("[OtvoriRacun] ERROR = {0}", e.Message);
+                return retVal;
             }
         }
 
-        public void TestCommunication()
+        public string ProveriStanje(int idKorisnika)
         {
+            string retVal = "";
             try
             {
-               
-                factory.TestCommunication();
+
+                retVal = factory.ProveriStanje(idKorisnika);
+                return retVal;
             }
             catch (Exception e)
             {
-                Console.WriteLine("[TestCommunication] ERROR = {0}", e.Message);
+                Console.WriteLine("[ProveriStanja] ERROR = {0}", e.Message);
+                return retVal;
             }
         }
 
-        public void ZatvoriRacun()
+        public string ZatvoriRacun(int idKorisnika)
         {
+            string retVal = "";
             try
             {
 
-                factory.ZatvoriRacun();
+                retVal = factory.ZatvoriRacun(idKorisnika);
+                return retVal;
             }
             catch (Exception e)
             {
-                Console.WriteLine("[TestCommunication] ERROR = {0}", e.Message);
+                Console.WriteLine("[ZatvoriRacun] ERROR = {0}", e.Message);
+                return retVal;
+            }
+        }
+
+        public string Uplata(long racun, double uplata)
+        {
+            string retVal = "";
+            try
+            {
+
+                retVal = factory.Uplata(racun, uplata);
+                return retVal;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("[Uplata] ERROR = {0}", e.Message);
+                return retVal;
+            }
+        }
+
+        public string Isplata(int idKorisnika, double uplata)
+        {
+            string retVal = "";
+            try
+            {
+
+                retVal = factory.Isplata(idKorisnika, uplata);
+                return retVal;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("[Isplata] ERROR = {0}", e.Message);
+                return retVal;
+            }
+        }
+
+
+        public string Opomena(long broj)
+        {
+            string retVal = "";
+            try
+            {
+
+                retVal = factory.Opomena(broj);
+                return retVal;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("[Opomena] ERROR = {0}", e.Message);
+                return retVal;
             }
         }
     }

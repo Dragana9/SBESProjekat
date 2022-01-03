@@ -9,6 +9,6 @@ namespace Service
 {
     public class databaseRacuni
     {
-         public Dictionary<int,Racun> Racuni = new Dictionary<int, Racun>();
+         public static Dictionary<int,Racun> dicRacuni = new Dictionary<int, Racun>();
     }
 }

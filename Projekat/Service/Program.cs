@@ -40,7 +40,7 @@ namespace Service
             try
             {
                 host.Open();
-                Console.WriteLine("WCFService is started.\nPress <enter> to stop ...");
+                Console.WriteLine("Servis banke je pokrenut.\nPress <enter> to stop ...");
                 Console.ReadLine();
             }
             catch (Exception e)

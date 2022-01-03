@@ -12,25 +12,28 @@ namespace Library1
         private long broj;
         private double iznos;
         private double dozvoljeniMinus;
-        private double blokiran;
+        private bool blokiran;
         private DateTime poslednjaTransakcija;
-        //info kom korisniku pripada?
+        private int idKorisnika;
+       
 
         public long Broj { get => broj; set => broj = value; }
         public double Iznos { get => iznos; set => iznos = value; }
         public double DozvoljeniMinus { get => dozvoljeniMinus; set => dozvoljeniMinus = value; }
-        public double Blokiran { get => blokiran; set => blokiran = value; }
+        public bool Blokiran { get => blokiran; set => blokiran = value; }
         public DateTime PoslednjaTransakcija { get => poslednjaTransakcija; set => poslednjaTransakcija = value; }
+        public int IdKorisnika { get => idKorisnika; set => idKorisnika = value; }
 
         public Racun() { }
 
-        public Racun(long broj, double iznos, double dozvoljeniMinus, double blokiran, DateTime poslednjaTransakcija)
+        public Racun(long broj, double iznos, double dozvoljeniMinus, bool blokiran, DateTime poslednjaTransakcija, int idKorisnika)
         {
-            broj = broj;
-            iznos = iznos;
-            dozvoljeniMinus = dozvoljeniMinus;
-            blokiran = blokiran;
-            poslednjaTransakcija = poslednjaTransakcija;
+            Broj = broj;
+            Iznos = iznos;
+            DozvoljeniMinus = dozvoljeniMinus;
+            Blokiran = blokiran;
+            PoslednjaTransakcija = poslednjaTransakcija;
+            IdKorisnika = idKorisnika;
         }
     }
 }
