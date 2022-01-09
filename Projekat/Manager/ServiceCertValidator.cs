@@ -33,13 +33,13 @@ namespace Manager
                 test = false;
                 throw new Exception("Certificate is not from the valid issuer.");
             }
-            if (test = true)
+            if (test )
             {
-                Audit.AuthenticationSuccess(certificate.SubjectName.Name);
+                Audit.AuthenticationSuccess(Formatter1.ParseName(certificate.SubjectName.Name));
             }
             else
             {
-                Audit.AuthenticationFailed(certificate.SubjectName.Name);
+                Audit.AuthenticationFailed(Formatter1.ParseName(certificate.SubjectName.Name));
             }
         }
     }

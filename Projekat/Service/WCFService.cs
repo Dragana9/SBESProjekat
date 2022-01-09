@@ -11,6 +11,7 @@ using Manager;
 
 namespace Service
 {
+    [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
     public class WCFService : IWCFContract
     {
         public DataBaseContoller db = new DataBaseContoller();
@@ -279,7 +280,7 @@ namespace Service
 
                     try
                     {
-                        Audit.UplataSuccess(cltCert.SubjectName.Name);
+                        Audit.UplataSuccess(Formatter1.ParseName(cltCert.SubjectName.Name));
                     }
                     catch (Exception e)
                     {
@@ -295,7 +296,7 @@ namespace Service
                 {
                     try
                     {
-                        Audit.UplataFailed(cltCert.SubjectName.Name);
+                        Audit.UplataFailed(Formatter1.ParseName(cltCert.SubjectName.Name));
                     }
                     catch (Exception e)
                     {

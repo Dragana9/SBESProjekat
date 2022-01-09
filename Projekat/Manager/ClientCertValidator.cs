@@ -43,14 +43,28 @@ namespace Manager
                 throw new Exception("Certificate is self-issued.");
             }
 
-            if (test = true)
+            if (test)
             {
-                Audit.AuthenticationSuccess(certificate.SubjectName.Name);
+                try
+                {
+                    Audit.AuthenticationSuccess(Formatter1.ParseName(certificate.SubjectName.Name));
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
             }
             else
             {
-                Audit.AuthenticationFailed(certificate.SubjectName.Name);
+                try
+                {
+                    Audit.AuthenticationFailed(Formatter1.ParseName(certificate.SubjectName.Name));
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
             }
-        }
+            }
     }
 }
