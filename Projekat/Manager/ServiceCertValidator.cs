@@ -19,6 +19,8 @@ namespace Manager
 		/// <param name="certificate"> certificate to be validate </param>
 		public override void Validate(X509Certificate2 certificate)
         {
+            bool test = true;
+
             /// This will take service's certificate from storage
             /// paramerar je klijentski 
             /// iz storage vadimo serverski
@@ -28,7 +30,16 @@ namespace Manager
             // razliciti issueri
             if (!certificate.Issuer.Equals(srvCert.Issuer))
             {
+                test = false;
                 throw new Exception("Certificate is not from the valid issuer.");
+            }
+            if (test = true)
+            {
+                Audit.AuthenticationSuccess(certificate.SubjectName.Name);
+            }
+            else
+            {
+                Audit.AuthenticationFailed(certificate.SubjectName.Name);
             }
         }
     }

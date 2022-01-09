@@ -117,19 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AuthenticationFailed" xml:space="preserve">
+    <value>User {0} is not successfully authenticated.</value>
+  </data>
   <data name="AuthenticationSuccess" xml:space="preserve">
     <value>User {0} is successfully authenticated.</value>
   </data>
-  <data name="IsplatiFailed" xml:space="preserve">
+  <data name="IsplataFailed" xml:space="preserve">
     <value>Korisnik {0} nije isplatio.</value>
   </data>
-  <data name="IsplatiSuccess" xml:space="preserve">
+  <data name="IsplataSuccess" xml:space="preserve">
     <value>Korisnik {0} uspesno isplatio.</value>
   </data>
-  <data name="UplatiFailed" xml:space="preserve">
+  <data name="UplataFailed" xml:space="preserve">
     <value>Korisnik {0} nije uplatio.</value>
   </data>
-  <data name="UplatiSuccess" xml:space="preserve">
+  <data name="UplataSuccess" xml:space="preserve">
     <value>Korisnik {0} uspesno uplatio.</value>
   </data>
 </root>

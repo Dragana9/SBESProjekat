@@ -14,7 +14,8 @@ namespace Manager
         UplataSuccess=1,
         UplataFailed=2,
         IsplataSuccess=3,
-        IsplataFailed=4
+        IsplataFailed=4,
+        AuthenticationFailed=5
     }
 
     public  class AuditEvents
@@ -45,6 +46,15 @@ namespace Manager
             {
                 // TO DO
                 return ResourceMgr.GetString(AuditEventTypes.AuthenticationSuccess.ToString());
+            }
+        }
+
+        public static string AuthenticationFailed
+        {
+            get
+            {
+                // TO DO
+                return ResourceMgr.GetString(AuditEventTypes.AuthenticationFailed.ToString());
             }
         }
 

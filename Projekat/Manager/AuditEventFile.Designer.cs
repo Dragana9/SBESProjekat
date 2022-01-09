@@ -61,6 +61,15 @@ namespace Manager {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to User {0} is not successfully authenticated..
+        /// </summary>
+        internal static string AuthenticationFailed {
+            get {
+                return ResourceManager.GetString("AuthenticationFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User {0} is successfully authenticated..
         /// </summary>
         internal static string AuthenticationSuccess {
@@ -72,36 +81,36 @@ namespace Manager {
         /// <summary>
         ///   Looks up a localized string similar to Korisnik {0} nije isplatio..
         /// </summary>
-        internal static string IsplatiFailed {
+        internal static string IsplataFailed {
             get {
-                return ResourceManager.GetString("IsplatiFailed", resourceCulture);
+                return ResourceManager.GetString("IsplataFailed", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Korisnik {0} uspesno isplatio..
         /// </summary>
-        internal static string IsplatiSuccess {
+        internal static string IsplataSuccess {
             get {
-                return ResourceManager.GetString("IsplatiSuccess", resourceCulture);
+                return ResourceManager.GetString("IsplataSuccess", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Korisnik {0} nije uplatio..
         /// </summary>
-        internal static string UplatiFailed {
+        internal static string UplataFailed {
             get {
-                return ResourceManager.GetString("UplatiFailed", resourceCulture);
+                return ResourceManager.GetString("UplataFailed", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Korisnik {0} uspesno uplatio..
         /// </summary>
-        internal static string UplatiSuccess {
+        internal static string UplataSuccess {
             get {
-                return ResourceManager.GetString("UplatiSuccess", resourceCulture);
+                return ResourceManager.GetString("UplataSuccess", resourceCulture);
             }
         }
     }

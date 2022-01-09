@@ -20,6 +20,10 @@ namespace Manager
 		public override void Validate(X509Certificate2 certificate)
         {
 
+            bool test = true;
+
+            
+
             //parametar Validate metode-serverski sertifikat
             //iz storage kupimo klijentski 
             X509Certificate2 cltCert = CertManager.GetCertificateFromStorage(StoreName.My, StoreLocation.LocalMachine,
@@ -28,13 +32,24 @@ namespace Manager
             //issueri nisu isti
             if (!certificate.Issuer.Equals(cltCert.Issuer))
             {
+                test = false;
                 throw new Exception("Certificate is not from the valid issuer.");
             }
 
             //serverski self-signed
-           else if (certificate.Subject.Equals(certificate.Issuer))
+            if (certificate.Subject.Equals(certificate.Issuer))
             {
+                test = false;
                 throw new Exception("Certificate is self-issued.");
+            }
+
+            if (test = true)
+            {
+                Audit.AuthenticationSuccess(certificate.SubjectName.Name);
+            }
+            else
+            {
+                Audit.AuthenticationFailed(certificate.SubjectName.Name);
             }
         }
     }

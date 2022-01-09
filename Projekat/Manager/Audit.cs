@@ -22,6 +22,7 @@ namespace Manager
                 {
                     EventLog.CreateEventSource(SourceName, LogName);
                 }
+                   
                 customLog = new EventLog(LogName,
                     Environment.MachineName, SourceName);
             }
@@ -35,7 +36,7 @@ namespace Manager
 
         public static void AuthenticationSuccess(string userName)
         {
-            //TO DO
+           
 
             if (customLog != null)
             {
@@ -49,6 +50,26 @@ namespace Manager
             {
                 throw new ArgumentException(string.Format("Error while trying to write event (eventid = {0}) to event log.",
                     (int)AuditEventTypes.AuthenticationSuccess));
+            }
+        }
+
+
+        public static void AuthenticationFailed(string userName)
+        {
+          
+
+            if (customLog != null)
+            {
+                string UserAuthenticationFailed =
+                    AuditEvents.AuthenticationFailed;
+                string message = String.Format(UserAuthenticationFailed,
+                    userName);
+                customLog.WriteEntry(message);
+            }
+            else
+            {
+                throw new ArgumentException(string.Format("Error while trying to write event (eventid = {0}) to event log.",
+                    (int)AuditEventTypes.AuthenticationFailed));
             }
         }
 

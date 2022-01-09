@@ -50,6 +50,8 @@ namespace Service
 
                 }
 
+                string userName = Formatter1.ParseName(ServiceSecurityContext.Current.PrimaryIdentity.Name);
+
                 if (pronasao == true)
                 {
                     if (azurirani.Blokiran == false)
@@ -58,11 +60,16 @@ namespace Service
                         if (noviIznos >= -azurirani.DozvoljeniMinus)
                         {
                             db.AzurirajRacunIznos(azurirani, azurirani.Broj, noviIznos);
+
+                            Audit.IsplataSuccess(userName);
+
                             retVal = "Uspesno izvrsena isplata.";
                             return retVal;
                         }
                         else
                         {
+                            Audit.IsplataFailed(userName);
+
                             retVal = "Nije moguca isplata van dozvoljenog minusa";
                             return retVal;
                         }
@@ -268,12 +275,33 @@ namespace Service
                         db.AzurirajRacunBlokiran(azurirani, 0);
                         retVal = "Odblokiran racun.";
                     }
+
+
+                    try
+                    {
+                        Audit.UplataSuccess(cltCert.SubjectName.Name);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
+
+
                     retVal += "Uspesno izvrsena uplata.";
                     return retVal;
 
                 }
                 else
                 {
+                    try
+                    {
+                        Audit.UplataFailed(cltCert.SubjectName.Name);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
+
                     retVal = "Netacan broj racuna.";
                     return retVal;
                 }
