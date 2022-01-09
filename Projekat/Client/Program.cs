@@ -15,7 +15,7 @@ namespace Client
     {
         static void Main(string[] args)
         {
-            string srvCertCN = "markovcert";
+            string srvCertCN = "marko";
 
             NetTcpBinding binding = new NetTcpBinding();
           //  string address = "net.tcp://localhost:9999/WCFService";

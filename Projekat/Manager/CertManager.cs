@@ -29,7 +29,7 @@ namespace Manager
             /// Check whether the subjectName of the certificate is exactly the same as the given "subjectName"
             foreach (X509Certificate2 c in certCollection)
             {
-                if (c.SubjectName.Name.Equals(string.Format("CN={0}", subjectName)))
+                if (c.SubjectName.Name.Contains(string.Format("CN={0}", subjectName)))
                 {
                     return c;
                 }
@@ -38,6 +38,33 @@ namespace Manager
             return null;
         }
 
+        public static X509Certificate2 GetGroupFromStorage(StoreName storeName, StoreLocation storeLocation, string subjectName)
+        {
+
+            /// <summary>
+            /// Get a certificate with the specified subject name from the predefined certificate storage
+            /// Only valid certificates should be considered
+            /// </summary>
+            /// <param name="storeName"></param>
+            /// <param name="storeLocation"></param>
+            /// <param name="subjectName"></param>
+            /// <returns> The requested certificate. If no valid certificate is found, returns null. </returns>
+            X509Store store = new X509Store(storeName, storeLocation);
+            store.Open(OpenFlags.ReadOnly);
+
+            X509Certificate2Collection certCollection = store.Certificates.Find(X509FindType.FindBySubjectName, subjectName, true);
+
+            /// Check whether the subjectName of the certificate is exactly the same as the given "subjectName"
+            foreach (X509Certificate2 c in certCollection)
+            {
+                if (c.SubjectName.Name.Contains(string.Format("OU={0}", subjectName)))
+                {
+                    return c;
+                }
+            }
+
+            return null;
+        }
 
         /// <summary>
         /// Get a certificate from file.		
@@ -64,6 +91,12 @@ namespace Manager
 
 
             return certificate;
+        }
+        public static string GetUserGroup(X509Certificate2 cert)
+        {
+            string[] parts = cert.SubjectName.Name.Split('=');
+            return parts[2];
+
         }
     }
 }
