@@ -17,13 +17,9 @@ namespace Service
 
         public string Isplata(int idKorisnika, double isplata)
         {
-            string a = Formatter1.ParseName(ServiceSecurityContext.Current.PrimaryIdentity.Name);
-            string[] niz = a.Split(',', ';');
-            string niz1 = niz[1];
-            string[] niz2 = niz1.Split('=');
-            string b = niz2[1];
-            X509Certificate2 cltCert = CertManager.GetGroupFromStorage(StoreName.TrustedPeople, StoreLocation.LocalMachine,
-             b);
+           
+            X509Certificate2 cltCert = CertManager.GetCertificateFromStorage(StoreName.TrustedPeople, StoreLocation.LocalMachine,
+             Formatter1.ParseName(ServiceSecurityContext.Current.PrimaryIdentity.Name));
             string grupa = CertManager.GetUserGroup(cltCert);
 
             string retVal;
@@ -95,13 +91,9 @@ namespace Service
 
         public string Opomena(long broj)
         {
-            string a = Formatter1.ParseName(ServiceSecurityContext.Current.PrimaryIdentity.Name);
-            string[] niz = a.Split(',', ';');
-            string niz1 = niz[1];
-            string[] niz2 = niz1.Split('=');
-            string b = niz2[1];
-            X509Certificate2 cltCert = CertManager.GetGroupFromStorage(StoreName.TrustedPeople, StoreLocation.LocalMachine,
-             b);
+            
+            X509Certificate2 cltCert = CertManager.GetCertificateFromStorage(StoreName.TrustedPeople, StoreLocation.LocalMachine,
+              Formatter1.ParseName(ServiceSecurityContext.Current.PrimaryIdentity.Name));
             string grupa = CertManager.GetUserGroup(cltCert);
 
             string retVal;
@@ -148,13 +140,9 @@ namespace Service
         }
         public string OtvoriRacun(long broj, double dozvoljeniMinus, int idKorisnika)
         {
-            string a = Formatter1.ParseName(ServiceSecurityContext.Current.PrimaryIdentity.Name);
-            string[] niz = a.Split(',', ';');
-            string niz1 = niz[1];
-            string[] niz2 = niz1.Split('=');
-            string b = niz2[1];
-            X509Certificate2 cltCert = CertManager.GetGroupFromStorage(StoreName.TrustedPeople, StoreLocation.LocalMachine,
-             b);
+            
+            X509Certificate2 cltCert = CertManager.GetCertificateFromStorage(StoreName.TrustedPeople, StoreLocation.LocalMachine,
+              Formatter1.ParseName(ServiceSecurityContext.Current.PrimaryIdentity.Name));
             string grupa = CertManager.GetUserGroup(cltCert);
 
             string retVal;
@@ -187,13 +175,9 @@ namespace Service
 
         public string ProveriStanje(int idKorisnika)
         {
-            string a = Formatter1.ParseName(ServiceSecurityContext.Current.PrimaryIdentity.Name);
-            string[] niz = a.Split(',', ';');
-            string niz1 = niz[1];
-            string[] niz2 = niz1.Split('=');
-            string b = niz2[1];
-            X509Certificate2 cltCert = CertManager.GetGroupFromStorage(StoreName.TrustedPeople, StoreLocation.LocalMachine,
-             b);
+            
+            X509Certificate2 cltCert = CertManager.GetCertificateFromStorage(StoreName.TrustedPeople, StoreLocation.LocalMachine,
+              Formatter1.ParseName(ServiceSecurityContext.Current.PrimaryIdentity.Name));
             string grupa = CertManager.GetUserGroup(cltCert);
 
             string retVal;
@@ -243,13 +227,8 @@ namespace Service
 
         public string Uplata(long racun, double uplata)
         {
-            string a = Formatter1.ParseName(ServiceSecurityContext.Current.PrimaryIdentity.Name);
-            string[] niz = a.Split(',', ';');
-            string niz1 = niz[1];
-            string[] niz2 = niz1.Split('=');
-            string b = niz2[1];
-            X509Certificate2 cltCert = CertManager.GetGroupFromStorage(StoreName.TrustedPeople, StoreLocation.LocalMachine,
-             b);
+            X509Certificate2 cltCert = CertManager.GetCertificateFromStorage(StoreName.TrustedPeople, StoreLocation.LocalMachine,
+              Formatter1.ParseName(ServiceSecurityContext.Current.PrimaryIdentity.Name));
             string grupa = CertManager.GetUserGroup(cltCert);
 
             string retVal="";
@@ -309,13 +288,9 @@ namespace Service
 
         public string ZatvoriRacun(int idKorisnika)
         {
-            string a = Formatter1.ParseName(ServiceSecurityContext.Current.PrimaryIdentity.Name);
-            string[] niz = a.Split(',', ';');
-            string niz1 = niz[1];
-            string[] niz2 = niz1.Split('=');
-            string b = niz2[1];
-            X509Certificate2 cltCert = CertManager.GetGroupFromStorage(StoreName.TrustedPeople, StoreLocation.LocalMachine,
-             b);
+           
+            X509Certificate2 cltCert = CertManager.GetCertificateFromStorage(StoreName.TrustedPeople, StoreLocation.LocalMachine,
+              Formatter1.ParseName(ServiceSecurityContext.Current.PrimaryIdentity.Name));
             string grupa = CertManager.GetUserGroup(cltCert);
 
             string retVal;
